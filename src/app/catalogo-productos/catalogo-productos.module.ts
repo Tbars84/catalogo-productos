@@ -7,17 +7,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { FinalizarPedidoComponent } from './components/finalizar-pedido/finalizar-pedido.component';
 import { SeleccionProductosComponent } from './components/seleccion-productos/seleccion-productos.component';
 import { LandingAppComponent } from './components/landing-app/landing-app.component';
+import { ProductoCardComponent } from './components/seleccion-productos/components/producto-card/producto-card.component';
+// PRIMENG COMPONENTS
+import {CardModule} from 'primeng/card';
+import {ButtonModule} from 'primeng/button';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
 
 @NgModule({
   declarations : [
     FinalizarPedidoComponent,
     SeleccionProductosComponent,
-    LandingAppComponent
+    LandingAppComponent,
+    ProductoCardComponent
   ],
   imports : [
   CommonModule,
   AppRoutingModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  CardModule,
+  ButtonModule,
+  OverlayPanelModule
   ],
   exports : [
     LandingAppComponent
