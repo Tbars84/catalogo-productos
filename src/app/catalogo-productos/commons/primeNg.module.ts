@@ -14,18 +14,6 @@ import {TableModule} from 'primeng/table';
 import {ToastModule} from 'primeng/toast';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    CardModule,
-    ButtonModule,
-    OverlayPanelModule,
-    MenubarModule,
-    FieldsetModule,
-    CalendarModule,
-    DropdownModule,
-    TableModule,
-    ToastModule
-  ],
   exports: [
     BrowserAnimationsModule,
     CommonModule,

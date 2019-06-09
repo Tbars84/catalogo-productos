@@ -26,11 +26,9 @@ export class SeleccionProductosComponent implements OnInit {
   }
   public agregaAcarrito(ev){
     if (this.nuevoProd.find(prod => prod.idProducto == ev )) {
-      this.messageService.add({severity:'warn', summary:'Agrega al Carrito', detail:'Este producto ya esta agregado'});      
+      this.messageService.add({severity:'warn', summary:'Agrega al Carrito', detail:'Este producto ya esta agregado'});
     }else {
-      this.nuevoProd.push(this.productosArr.find(prod => prod.idProducto == ev ));
-      this.messageService.add({severity:'success', summary:'Agrega al Carrito', detail:'Producto agregado con exito'});
-      localStorage.setItem('preorden' , JSON.stringify(this.nuevoProd))
+      this.GuardaProducto(this.productosArr.find(prod => prod.idProducto == ev ))
     }
   }
   public chequeaPersistencia(){
@@ -38,5 +36,12 @@ export class SeleccionProductosComponent implements OnInit {
       this.messageService.add({severity:'warn', summary:'Agrega al Carrito', detail:'Una orden ya esta en proceso'});
       this.nuevoProd = JSON.parse(localStorage.getItem('preorden'))
     }
+  }
+  private GuardaProducto(param){
+    param.id = param.idProducto
+    this._srvProductos.guardarProductos(param).subscribe((prods) => prods)
+    this.nuevoProd.push(param);
+    this.messageService.add({severity:'success', summary:'Agrega al Carrito', detail:'Producto agregado con exito'});
+    localStorage.setItem('preorden',JSON.stringify(this.nuevoProd))
   }
 }

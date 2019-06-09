@@ -1,4 +1,5 @@
 export class ProductoInt {
+  public id?: number;
   public descripcion: string;
   public cantidadDisponible: number;
   public imagen: string;

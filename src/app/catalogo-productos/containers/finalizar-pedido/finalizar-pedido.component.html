@@ -5,9 +5,9 @@
        
         <p-card *ngIf="productosSeleccionados; else tablaPedidos">
             No se ha seleccionado ningun producto
-        </p-card>
-        <ng-template #tablaPedidos>
-          <pedidos-seleccionados></pedidos-seleccionados>
+          </p-card>
+          <ng-template #tablaPedidos>
+              <pedidos-seleccionados [tablaProdsSeleccionados]="listaProductosSeleccionados" (eliminaProductoPedido)="eliminaProductoPedido($event)"></pedidos-seleccionados>
         </ng-template>
       </p-fieldset>
       <p-fieldset legend="Informacion del cliente" [collapsed]="false" [toggleable]="true">

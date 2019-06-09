@@ -28,8 +28,8 @@ import {trigger,state,style,transition,animate,AnimationEvent} from '@angular/an
 })
 export class ProductoCardComponent implements OnInit {
   @Input() productos;
-  imagenSeleccionada: string;
   @Output() seleccionProd = new EventEmitter<number>();
+  imagenSeleccionada: string;
   public deshabilitaAgregar: boolean = false;
   constructor() { }
 
