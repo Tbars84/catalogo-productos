@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MessageService} from 'primeng/api';
 import { ProductosServicio } from '../../services/productos.service';
+import {MessageService} from 'primeng/api';
 import { ProductoInt } from '../../models/interfaces';
 
 @Component({

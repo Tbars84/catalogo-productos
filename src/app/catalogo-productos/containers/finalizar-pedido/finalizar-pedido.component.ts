@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductosServicio } from '../../services/productos.service';
+import { PedidosServicio } from '../../services/pedidos.service';
 import {MessageService} from 'primeng/api';
 import { ProductoInt } from '../../models/interfaces';
 
@@ -9,10 +10,10 @@ import { ProductoInt } from '../../models/interfaces';
   styleUrls: ['./finalizar-pedido.component.scss']
 })
 export class FinalizarPedidoComponent implements OnInit {
-  public productosSeleccionados = true;
   public listaProductosSeleccionados: ProductoInt[] = []
   constructor(
     private _srvProductos: ProductosServicio,
+    private _srvPedidosServicio: PedidosServicio,
     private messageService: MessageService
   ) { }
 
@@ -21,12 +22,10 @@ export class FinalizarPedidoComponent implements OnInit {
   }
   public chequeaPersistencia(){
     if (localStorage.getItem('preorden') !== null) {
-      this.productosSeleccionados = false;
       this._srvProductos.obtenerProductosSeleccionados().subscribe((prod) => {
         prod.map(item => {
           this.listaProductosSeleccionados.push(item)
         })
-        console.log(this.listaProductosSeleccionados);
       })
     }
   }
@@ -42,5 +41,26 @@ export class FinalizarPedidoComponent implements OnInit {
           console.log('error -->', err);
       }
     )
+  }
+  public infoUsuarioPedido(ev){
+    if (this.listaProductosSeleccionados.length > 0) {
+      const pedido = {
+        nombre: ev.nombre,
+        fecha: ev.fecha,
+        direccion: ev.direccion,
+        ciudad: ev.ciudad,
+        nuevoPedido: this.listaProductosSeleccionados,
+      }
+      this._srvPedidosServicio.guardarPedido(pedido).subscribe(
+        ()=>{
+          this.messageService.add({severity:'success', summary:'Envio de Pedido', detail:'Su envio se ha guardado y está en proceso'});
+        },
+        (err)=>{
+          console.log('error -->' , err);
+        }
+      )
+    } else {
+      this.messageService.add({severity:'error', summary:'Error en el Pedido', detail:'Por favor elige los productos que deseas ordenar'});
+    }
   }
 }

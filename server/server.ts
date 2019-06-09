@@ -7,7 +7,6 @@ const middlewares = jsonServer.defaults()
 
 server.use(middlewares)
 server.use((req, res, next) => {
-    console.log(req.headers)
     next()
 })
 server.use(router)

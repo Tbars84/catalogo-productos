@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { OverlayPanel } from 'primeng/overlaypanel';
-import {trigger,state,style,transition,animate,AnimationEvent} from '@angular/animations';
+import {trigger,state,style,transition,animate} from '@angular/animations';
 
 @Component({
   selector: 'producto-card',

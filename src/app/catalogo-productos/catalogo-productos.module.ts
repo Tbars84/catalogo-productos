@@ -5,8 +5,8 @@ import { PrimeNgModule } from './commons/primeNg.module';
 import { AppRoutingModule } from './commons/app-routing.module';
 // API SERVICIOS
 import { ProductosServicio } from './services/productos.service';
+import { PedidosServicio } from './services/pedidos.service';
 import { MessageService } from 'primeng/api';
-
 // COMPONENTS
 import { LandingAppComponent } from './containers/landing-app/landing-app.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -37,6 +37,7 @@ import { TablaPedidosSeleccionadosComponent } from './components/tabla-pedidos-s
   ],
   providers: [
     ProductosServicio,
+    PedidosServicio,
     MessageService
   ]
 })

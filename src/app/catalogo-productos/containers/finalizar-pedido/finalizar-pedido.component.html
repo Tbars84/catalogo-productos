@@ -1,27 +1,22 @@
 <div class="container">
   <div class="p-grid p-justify-center p-align-center">
     <div class="p-col-10 fieldEspacio">
-      <p-fieldset legend="Detalle del Pedido" [collapsed]="productosSeleccionados" [toggleable]="true">
-       
-        <p-card *ngIf="productosSeleccionados; else tablaPedidos">
-            No se ha seleccionado ningun producto
-          </p-card>
-          <ng-template #tablaPedidos>
-              <pedidos-seleccionados [tablaProdsSeleccionados]="listaProductosSeleccionados" (eliminaProductoPedido)="eliminaProductoPedido($event)"></pedidos-seleccionados>
-        </ng-template>
+      <p-fieldset legend="Detalle del Pedido" [toggleable]="true">
+        <pedidos-seleccionados [tablaProdsSeleccionados]="listaProductosSeleccionados" (eliminaProductoPedido)="eliminaProductoPedido($event)"></pedidos-seleccionados>
       </p-fieldset>
       <p-fieldset legend="Informacion del cliente" [collapsed]="false" [toggleable]="true">
-          <h3 class="first">Completar La información para envio</h3>
-          <div class="ui-g ui-fluid">
-              <div class="p-col-1">
-              </div>
-              <div class="p-col-10">
-                  <formulario-usuario></formulario-usuario>
-              </div>
-              <div class="p-col-1">
-              </div>
-          </div>        
-      </p-fieldset>
+        <h3 class="first">Completar La información para envio</h3>
+        <div class="ui-g ui-fluid">
+            <div class="p-col-1">
+            </div>
+            <div class="p-col-10">
+                <formulario-usuario (informacionPedidoUsuario)="infoUsuarioPedido($event)" ></formulario-usuario>
+            </div>
+            <div class="p-col-1">
+            </div>
+        </div>
+    </p-fieldset>
     </div>
   </div>
 </div>
+<p-toast position="top-right"></p-toast>
