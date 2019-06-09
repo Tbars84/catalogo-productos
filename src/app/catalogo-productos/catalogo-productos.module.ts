@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PrimeNgModule } from '@commonsModules/primeNg.module';
-import { AppRoutingModule } from '@commonsModules/app-routing.module';
+import { PrimeNgModule } from './commons/primeNg.module';
+import { AppRoutingModule } from './commons/app-routing.module';
 // API SERVICIOS
 import { ProductosServicio } from './services/productos.service';
-
 // COMPONENTS
-import { LandingAppComponent } from './components/landing-app/landing-app.component';
-import { MenuComponent } from '@childComponents/menu/menu.component';
-import { ProductoCardComponent } from '@childComponents/seleccion-productos/components/producto-card/producto-card.component';
-import { SeleccionProductosComponent } from '@childComponents/seleccion-productos/seleccion-productos.component';
-import { FinalizarPedidoComponent } from '@childComponents/finalizar-pedido/finalizar-pedido.component';
-import { FormularioUsuarioComponent } from '@childComponents/finalizar-pedido/components/formulario-usuario/formulario-usuario.component';
-import { TablaPedidosSeleccionadosComponent } from '@childComponents/finalizar-pedido/components/tabla-pedidos-seleccionados/tabla-pedidos-seleccionados.component';
+import { LandingAppComponent } from './container/landing-app/landing-app.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { ProductoCardComponent } from './components/producto-card/producto-card.component';
+import { SeleccionProductosComponent } from './components/seleccion-productos/seleccion-productos.component';
+import { FinalizarPedidoComponent } from './components/finalizar-pedido/finalizar-pedido.component';
+import { FormularioUsuarioComponent } from './components/formulario-usuario/formulario-usuario.component';
+import { TablaPedidosSeleccionadosComponent } from './components/tabla-pedidos-seleccionados/tabla-pedidos-seleccionados.component';
 
 
 @NgModule({
