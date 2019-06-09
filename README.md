@@ -5,7 +5,7 @@ This project was generated with [Angular CLI] version 7.2.2.
 ## Url de github pages
 https://tbars84.github.io/catalogo-productos/  
 +++++++++  
-se debe habilitar en local el sevidor Json Server para comunicarse con
+se debe habilitar en local el sevidor Json Server para comunicarse con  
 +++++++++  
 http://localhost:3000/  
 
