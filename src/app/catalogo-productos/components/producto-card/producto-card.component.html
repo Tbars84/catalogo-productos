@@ -1,0 +1,39 @@
+<div class="p-grid p-justify-start p-align-center" *ngIf="productos; else noHayProds">
+  <div class="p-col-2 espacio" [@animation]="'visible'" *ngFor="let prod of productos">
+    <p-card
+      [header]="prod.descripcion" [subheader]="prod.categoria"
+      styleClass="ui-card-shadow" >
+      <p-header (click)="ampliaImagen($event,prod,zoom)">
+        <img src="Card" [src]="prod.miniatura" />
+      </p-header>
+      <div>
+          {{prod.precio}}
+      </div>
+      <p-footer>
+        <button
+          pButton type="button"
+          [disabled]="deshabilitaAgregar"
+          (click)="agregaProd(prod.idProducto)"
+          label="Agregar a Carrito" icon="pi pi-tags">
+        </button>
+      </p-footer>
+    </p-card>
+  </div>
+  <p-overlayPanel [style]="{ maxWidth: '500px' }" #zoom [showCloseIcon]="true" [dismissable]="false">
+      <img *ngIf="imagenSeleccionada" [src]="imagenSeleccionada" alt="prod.descripcion" />
+  </p-overlayPanel>
+</div>
+<ng-template #noHayProds>
+    <div class="p-grid p-justify-center p-align-center">
+      <div class="p-col-12" *ngFor="let prod of productos">
+        <p-card 
+          header="No hay productos disponibles"
+          styleClass="ui-card-shadow" >
+          <div>
+              No hay productos disponibles
+            </div>
+        </p-card>
+      </div>
+    </div>
+</ng-template>
+

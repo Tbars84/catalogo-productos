@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseApi: `https://fvwzxk56cg.execute-api.us-east-1.amazonaws.com/mock/productos`
+  baseApi: `https://fvwzxk56cg.execute-api.us-east-1.amazonaws.com/mock`,
+  localApi: `http://localhost:3000`
 };
 
 /*

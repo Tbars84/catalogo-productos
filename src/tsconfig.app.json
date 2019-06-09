@@ -2,7 +2,13 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "types": []
+    "types": [],
+    "baseUrl": "./",
+    "paths": {
+      "@commonsModules/*": ["app/catalogo-productos/commons/*"],
+      "@container/*": ["app/catalogo-productos/components/*"],
+      "@views/*": ["app/catalogo-productos/components/*"]
+    }    
   },
   "exclude": [
     "test.ts",

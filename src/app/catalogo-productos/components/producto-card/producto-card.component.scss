@@ -1,0 +1,12 @@
+:host ::ng-deep  .ui-overlaypanel .ui-overlaypanel-close{
+  top: 1px;
+}
+:host ::ng-deep .ui-overlaypanel-content{
+  img{
+    width: 100%; 
+    cursor: pointer;
+  }
+}
+.espacio{
+  margin: 4%;
+}

@@ -1,7 +1,13 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src",
+    "paths": {
+      "@app/*": ["app/*"],
+      "@commonsModules/*": ["app/catalogo-productos/commons/*"],
+      "@container/*": ["app/catalogo-productos/container/*"],
+      "@views/*": ["app/catalogo-productos/components/*"],
+    },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
