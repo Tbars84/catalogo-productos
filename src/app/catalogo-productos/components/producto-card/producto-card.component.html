@@ -12,13 +12,15 @@
       <p-footer>
         <button
           pButton type="button"
+          [disabled]="deshabilitaAgregar"
+          (click)="agregaProd(prod.idProducto)"
           label="Agregar a Carrito" icon="pi pi-tags">
         </button>
       </p-footer>
     </p-card>
   </div>
   <p-overlayPanel [style]="{ maxWidth: '500px' }" #zoom [showCloseIcon]="true" [dismissable]="false">
-      <img [src]="imagenSeleccionada" alt="prod.descripcion" />
+      <img *ngIf="imagenSeleccionada" [src]="imagenSeleccionada" alt="prod.descripcion" />
   </p-overlayPanel>
 </div>
 <ng-template #noHayProds>

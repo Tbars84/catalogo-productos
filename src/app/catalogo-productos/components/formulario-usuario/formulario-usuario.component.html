@@ -1,27 +1,39 @@
 <div class="container">
-    <div class="ui-g ui-fluid">
-        <div class="p-col-12">
-            <div class="ui-inputgroup">
-              <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
-              <input type="text" pInputText placeholder="Nombre">         
-            </div>
+  <form [formGroup]="informacionUsuario" (ngSubmit)="envioPedido()">
+  <div class="ui-g ui-fluid">
+      <div class="p-col-12">
+        <div class="ui-inputgroup">
+          <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+          <input formControlName="nombre"  type="text" pInputText placeholder="Nombre" />
         </div>
-        <div class="p-col-6">
-            <p-calendar [showIcon]="true"></p-calendar>
+      </div>
+      <div class="p-col-6">
+        <p-calendar formControlName="fecha" [showIcon]="true"></p-calendar>
+      </div>
+      <div class="p-col-6">
+        <div class="ui-inputgroup">
+          <span class="ui-inputgroup-addon"
+            ><i class="fa fa-map-marker"></i
+          ></span>
+          <input formControlName="direccion" type="text" pInputText placeholder="Direccion" />
         </div>
-        <div class="p-col-6">
-            <div class="ui-inputgroup">
-              <span class="ui-inputgroup-addon"><i class="fa fa-map-marker"></i></span>
-              <input type="text" pInputText placeholder="Direccion">         
-            </div>
+      </div>
+      <div class="p-col-12">
+        <div class="ui-inputgroup">
+          <p-dropdown formControlName="ciudad"
+            [options]="ciudades"
+            filter="true"
+            placeholder="Seleccione Ciudad de Entrega"
+          ></p-dropdown>
         </div>
-        <div class="p-col-12">
-            <div class="ui-inputgroup">
-              <p-dropdown [options]="ciudades" filter="true" placeholder="Seleccione Ciudad de Entrega"></p-dropdown>
-            </div>
-        </div>
-        <div class="p-col-12">
-            <p-button icon="pi pi-check" [disabled]="true" label="Enviar Pedido"></p-button>
-        </div>                        
+      </div>
+      <div class="p-col-12">
+        <p-button
+          icon="pi pi-check"
+          label="Enviar Pedido"
+        ></p-button>
+      </div>
     </div>
+  </form>
 </div>
+<p-toast position="top-right"></p-toast>

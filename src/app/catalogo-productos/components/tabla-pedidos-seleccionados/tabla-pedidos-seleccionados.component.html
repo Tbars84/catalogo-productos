@@ -1,3 +1,20 @@
-<p>
-  tabla-pedidos-seleccionados works!
-</p>
+<p-table [value]="tablaProdsSeleccionados">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>id</th>
+      <th>Producto</th>
+      <th>Precio</th>
+      <th>Acciones</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-item >
+    <tr>
+      <td>{{item.idProducto}}</td>
+      <td>{{item.descripcion}}</td>
+      <td>{{item.precio}}</td>
+      <td align="center" *ngIf="item">
+        <button pButton type="button" label="Sacar de Pedido" class="ui-button-danger"(click)="eliminaProd(item)"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
