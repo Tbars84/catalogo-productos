@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { OverlayPanel } from 'primeng/overlaypanel';
 import {trigger,state,style,transition,animate,AnimationEvent} from '@angular/animations';
 
@@ -6,7 +6,7 @@ import {trigger,state,style,transition,animate,AnimationEvent} from '@angular/an
   selector: 'producto-card',
   templateUrl: './producto-card.component.html',
   styleUrls: ['./producto-card.component.scss'],
-    animations: [
+  animations: [
         trigger('animation', [
             state('visible', style({
                 transform: 'translateY(0)',
@@ -29,13 +29,20 @@ import {trigger,state,style,transition,animate,AnimationEvent} from '@angular/an
 export class ProductoCardComponent implements OnInit {
   @Input() productos;
   imagenSeleccionada: string;
+  @Output() seleccionProd = new EventEmitter<number>();
+  public deshabilitaAgregar: boolean = false;
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.productos);
-  }
+  ngOnInit() {}
   public ampliaImagen(event, prod, overlaypanel: OverlayPanel){
     this.imagenSeleccionada = prod.imagen;
     overlaypanel.toggle(event);
+  }
+  public agregaProd(prodId){
+    this.deshabilitaAgregar = true;
+    this.seleccionProd.emit(prodId)
+    setTimeout(() => {
+      this.deshabilitaAgregar = false;
+    }, 800);
   }
 }

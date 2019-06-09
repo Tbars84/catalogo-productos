@@ -5,6 +5,8 @@ import { PrimeNgModule } from './commons/primeNg.module';
 import { AppRoutingModule } from './commons/app-routing.module';
 // API SERVICIOS
 import { ProductosServicio } from './services/productos.service';
+import { MessageService } from 'primeng/api';
+
 // COMPONENTS
 import { LandingAppComponent } from './container/landing-app/landing-app.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -13,7 +15,6 @@ import { SeleccionProductosComponent } from './components/seleccion-productos/se
 import { FinalizarPedidoComponent } from './components/finalizar-pedido/finalizar-pedido.component';
 import { FormularioUsuarioComponent } from './components/formulario-usuario/formulario-usuario.component';
 import { TablaPedidosSeleccionadosComponent } from './components/tabla-pedidos-seleccionados/tabla-pedidos-seleccionados.component';
-
 
 @NgModule({
   declarations : [
@@ -35,7 +36,8 @@ import { TablaPedidosSeleccionadosComponent } from './components/tabla-pedidos-s
     LandingAppComponent
   ],
   providers: [
-    ProductosServicio
+    ProductosServicio,
+    MessageService
   ]
 })
 
