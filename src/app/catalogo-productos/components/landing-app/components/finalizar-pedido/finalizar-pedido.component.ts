@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./finalizar-pedido.component.scss']
 })
 export class FinalizarPedidoComponent implements OnInit {
-
+  public productosSeleccionados = true;
   constructor() { }
 
   ngOnInit() {

@@ -1,0 +1,10 @@
+input[type="text"] {
+  width: 100%;
+  padding-left: 1%;
+}
+.ui-inputgroup .ui-inputgroup-addon{
+  min-width: 45px;
+}
+:host ::ng-deep  p-dropdown{
+  width: 100%;
+}

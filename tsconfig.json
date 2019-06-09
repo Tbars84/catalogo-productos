@@ -1,7 +1,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src/",
+    "paths": {
+      "@childComponents/*": ["app/catalogo-productos/components/landing-app/components/*"],
+      "@commonsModules/*": ["app/catalogo-productos/commons/*"]
+    },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,

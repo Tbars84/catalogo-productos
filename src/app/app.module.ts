@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CatProdsModule } from './catalogo-productos/catalogo-productos.module';
 
@@ -12,6 +12,7 @@ import { CatProdsModule } from './catalogo-productos/catalogo-productos.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     CatProdsModule
   ],
   providers: [],
