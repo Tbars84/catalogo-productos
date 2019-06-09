@@ -34,7 +34,9 @@ export class SeleccionProductosComponent implements OnInit {
   public chequeaPersistencia(){
     if (localStorage.getItem('preorden') !== null) {
       this.messageService.add({severity:'warn', summary:'Agrega al Carrito', detail:'Una orden ya esta en proceso'});
-      this.nuevoProd = JSON.parse(localStorage.getItem('preorden'))
+      if (localStorage.getItem('preorden') !== '') {
+        this.nuevoProd = JSON.parse(localStorage.getItem('preorden'))
+      }
     }
   }
   private GuardaProducto(param){
