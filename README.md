@@ -1,27 +1,32 @@
 # CatalogoProductos
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.2.
+This project was generated with [Angular CLI] version 7.2.2.
+
+## Url de github pages
+https://tbars84.github.io/catalogo-productos/
++++++++++ 
+se debe habilitar en local el sevidor Json Server para comunicarse con
++++++++++
+http://localhost:3000/
 
 ## Development server
+Run `ng serve` to start Angular project 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm run server` to start Json Server backEnd service of the application CatalogoProductos
 
-## Code scaffolding
+## Estructura del proyecto:
+Toda la app se realizo en una carpeta con nombre catalogo-productos para garantizar su independencia del app.module del framework de angular, la estructura de archivos tiene el siguiente orden(para garantizr su escalabilidad):
++commons 
+modulos de transversales a la aplicación
++components 
+compontentes hijos, para potencializar su uso en diferentes casos, siempre deben estar ligados a componentes padres para recibir data y se comunican por Input y Output
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
++containers 
+compontentes padres que reciben la data, asi se potencializa un uso centralizado de los 
+servicios
 
-## Build
++models 
+interfaces que nos permiten generar un tipado fuerte de las propiedades en la aplicacion
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
++services 
+comunicacion con servicios de backend, en este caso el back se realizo con jsonServer y se encuentra alojado en la carpeta server
